@@ -1,10 +1,9 @@
 defmodule Assert do
   @moduledoc """
-  Documentation for Assert.
+  Assert the data type of environment variables at compile time
   """
 
-  @doc """
-  Hello world.
+  @doc ~S"""
 
   ## Examples
 
