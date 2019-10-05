@@ -1,0 +1,3 @@
+%{
+  "const": {:git, "https://github.com/nicholasbair/const.git", "d60eb9f76403507e777cf8ea62de3b831026b13d", []},
+}

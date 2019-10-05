@@ -1,0 +1,1 @@
+NOT_BOOL is type string

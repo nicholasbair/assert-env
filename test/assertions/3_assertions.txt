@@ -1,0 +1,1 @@
+NOT_STRING is type boolean

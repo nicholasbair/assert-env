@@ -1,0 +1,1 @@
+NOT_FLOAT is type integer
