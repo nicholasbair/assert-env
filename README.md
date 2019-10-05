@@ -14,11 +14,19 @@ end
 
 ## Usage
 1. Add a file to project root, `assertions.txt`
-2. In `assertions.txt`, add your assertions
+2. In `assertions.txt`, add your assertions (one per line, no empty lines)
 
-### Example Assertions
+### Supported Assertions
 - SOME_VAR is not nil
 - SOME_VAR is type float
+- SOME_VAR is type integer
+- SOME_VAR is type string
+- SOME_VAR is type boolean
 
 ### Provisions for Compile time
-https://hexdocs.pm/mix/Mix.Task.Compiler.html
+Run assertions at compile time (cause the build to fail without the correct environment variables) by adding a module:
+```elixir
+defmodule MyModule.Assert do
+  Assert.init()
+end
+```
