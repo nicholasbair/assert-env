@@ -23,6 +23,10 @@ defmodule Assert do
       iex> Assert.init("./test/assertions/4_assertions.txt")
       ** (RuntimeError) Expected environment variable NOT_BOOL to be type binary.
 
+      iex> System.put_env("BOOL", "true")
+      iex> Assert.init("./test/assertions/5_assertions.txt")
+      :ok
+
   """
 
   import Const
@@ -34,7 +38,7 @@ defmodule Assert do
     file
     |> File.stream!
     |> Stream.map(fn line -> parse_assertion(line) end)
-    |> Stream.each(fn {var, _is, action, value} -> assert(var, action, value) end)
+    |> Stream.each(fn args -> assert(args) end)
     |> Stream.run
   end
 
@@ -45,13 +49,15 @@ defmodule Assert do
     |> List.to_tuple
   end
 
-  defp assert(var, "not", "nil"), do: fetch!(var)
-  defp assert(var, "type", "string"), do: assert(var, "type", "binary")
-  defp assert(var, "type", value) do
+  defp assert({var, _is, "not", "nil"}), do: fetch!(var)
+  defp assert({var, is, "type", "string"}), do: assert({var, is, "type", "binary"})
+  defp assert({var, _is, "type", value}) do
     case apply(Kernel, "is_#{value}" |> String.to_atom(), [fetch!(var)]) do
       false -> raise "Expected environment variable #{var} to be type #{value}."
       true -> :ok
     end
   end
+
+  defp assert(_), do: :ok
 
 end

@@ -1,0 +1,7 @@
+
+// Comment
+
+BOOL is not nil
+
+BOOL is type boolean
+# another comment
