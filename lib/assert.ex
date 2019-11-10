@@ -27,6 +27,10 @@ defmodule Assert do
       iex> Assert.init("./test/assertions/5_assertions.txt")
       :ok
 
+      iex> System.put_env("JSON", "{\"key\": \"value\"}")
+      iex> Assert.init("./test/assertions/6_assertions.txt")
+      :ok
+
   """
 
   import Const

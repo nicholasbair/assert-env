@@ -1,3 +1,4 @@
 %{
-  "const": {:git, "https://github.com/nicholasbair/const.git", "d60eb9f76403507e777cf8ea62de3b831026b13d", []},
+  "const": {:git, "https://github.com/nicholasbair/const.git", "72e5988af154ef1bbab3fd688a93eb06b7e7f8f1", []},
+  "jason": {:hex, :jason, "1.1.2", "b03dedea67a99223a2eaf9f1264ce37154564de899fd3d8b9a21b1a6fd64afe7", [:mix], [{:decimal, "~> 1.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm"},
 }
