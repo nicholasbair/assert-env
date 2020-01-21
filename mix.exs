@@ -11,17 +11,16 @@ defmodule Assert.MixProject do
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger]
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:const, git: "https://github.com/nicholasbair/const.git"}
+      {:const, git: "https://github.com/nicholasbair/const.git"},
+      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
     ]
   end
 end
