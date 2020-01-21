@@ -35,9 +35,11 @@ defmodule Assert do
 
   import Const
 
+  @spec init(binary) :: :ok
   def init(file \\ "assertions.txt"), do: get_file(file)
 
   # -- Private --
+  @spec get_file(binary) :: :ok
   defp get_file(file) do
     file
     |> File.stream!
@@ -46,6 +48,7 @@ defmodule Assert do
     |> Stream.run
   end
 
+  @spec parse_assertion(binary) :: {binary, binary, binary, binary}
   defp parse_assertion(str) do
     str
     |> String.trim_trailing
@@ -53,6 +56,7 @@ defmodule Assert do
     |> List.to_tuple
   end
 
+  @spec assert({binary, binary, binary, binary}) :: :ok
   defp assert({var, _is, "not", "nil"}), do: fetch!(var)
   defp assert({var, is, "type", "string"}), do: assert({var, is, "type", "binary"})
   defp assert({var, _is, "type", value}) do
