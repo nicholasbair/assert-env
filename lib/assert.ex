@@ -58,7 +58,7 @@ defmodule Assert do
 
   @spec assert({String.t, String.t, String.t, String.t}) :: :ok
   defp assert({var, _is, "not", "nil"}), do: fetch!(var)
-  defp assert({var, is, "type", "string"}), do: assert({var, is, "type", "String.t"})
+  defp assert({var, is, "type", "string"}), do: assert({var, is, "type", "binary"})
   defp assert({var, _is, "type", value}) do
     case apply(Kernel, "is_#{value}" |> String.to_atom(), [fetch!(var)]) do
       false -> raise "Expected environment variable #{var} to be type #{value}."
