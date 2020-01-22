@@ -1,5 +1,5 @@
 %{
-  "const": {:git, "https://github.com/nicholasbair/const.git", "c02f4ceaf76a99bf3b7215444faa8b0f848b51da", []},
+  "const": {:git, "https://github.com/nicholasbair/const.git", "1d3b2cc30633a1c916ab4190839abdbb0426be2e", []},
   "dialyxir": {:hex, :dialyxir, "0.5.1", "b331b091720fd93e878137add264bac4f644e1ddae07a70bf7062c7862c4b952", [:mix], [], "hexpm"},
   "jason": {:hex, :jason, "1.1.2", "b03dedea67a99223a2eaf9f1264ce37154564de899fd3d8b9a21b1a6fd64afe7", [:mix], [{:decimal, "~> 1.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm"},
 }

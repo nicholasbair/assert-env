@@ -35,11 +35,11 @@ defmodule Assert do
 
   import Const
 
-  @spec init(binary) :: :ok
+  @spec init(String.t) :: :ok
   def init(file \\ "assertions.txt"), do: get_file(file)
 
   # -- Private --
-  @spec get_file(binary) :: :ok
+  @spec get_file(String.t) :: :ok
   defp get_file(file) do
     file
     |> File.stream!
@@ -48,7 +48,7 @@ defmodule Assert do
     |> Stream.run
   end
 
-  @spec parse_assertion(binary) :: {binary, binary, binary, binary}
+  @spec parse_assertion(String.t) :: {String.t, String.t, String.t, String.t}
   defp parse_assertion(str) do
     str
     |> String.trim_trailing
@@ -56,9 +56,9 @@ defmodule Assert do
     |> List.to_tuple
   end
 
-  @spec assert({binary, binary, binary, binary}) :: :ok
+  @spec assert({String.t, String.t, String.t, String.t}) :: :ok
   defp assert({var, _is, "not", "nil"}), do: fetch!(var)
-  defp assert({var, is, "type", "string"}), do: assert({var, is, "type", "binary"})
+  defp assert({var, is, "type", "string"}), do: assert({var, is, "type", "String.t"})
   defp assert({var, _is, "type", value}) do
     case apply(Kernel, "is_#{value}" |> String.to_atom(), [fetch!(var)]) do
       false -> raise "Expected environment variable #{var} to be type #{value}."
